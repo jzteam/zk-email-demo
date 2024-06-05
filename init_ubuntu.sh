@@ -24,9 +24,12 @@ if command -v node -v &> /dev/null; then
   echo "node is installed."
 else 
   echo "node is not installed. start to intall"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-  wait
-  nvm --version
+  if command -v nvm --version &> /dev/null; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    wait
+    source ~/.bashrc
+    nvm --version
+  fi  
   nvm install 20.10.0
   wait
   nvm use default
