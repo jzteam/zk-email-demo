@@ -59,3 +59,24 @@ else
   circom --version
 fi
 
+# 初始化 zk-email-demo 依赖
+npm install -g yarn
+rm yarn.lock
+yarn add @zk-email/circuits @zk-email/helpers @zk-email/contracts 
+wait
+yarn add ts-node typescript
+wait
+npm install -g snarkjs
+
+# 生成 input.json
+npx ts-node inputs.ts
+
+# 编译 circom，编译超级慢，特别占内存 128G测试中
+# -l 添加一个文件夹到库搜索路径中
+# -o 输出到指定文件夹，默认 ./
+# --O0 不简化
+# --O1 部分简化
+# --O2 全部简化
+# --verbose 输出编译日志
+circom -l node_modules circuits/TestZkEmail.circom -o --r1cs --wasm --sym --c --O2 --verbose
+
