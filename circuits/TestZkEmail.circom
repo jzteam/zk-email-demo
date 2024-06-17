@@ -33,13 +33,14 @@ template TestZkEmail(maxHeadersLength, maxBodyLength, n, k, exposeFrom) {
     signal input signature[k];
     signal input emailBody[maxBodyLength];
     signal input emailBodyLength;
-    signal input bodyHashIndex;
     signal input precomputedSHA[32];
+    signal input bodyHashIndex;
     signal input twitterUsernameIndex;
     signal input address; // we don't need to constrain the + 1 due to https://geometry.xyz/notebook/groth16-malleability
 
 
     signal output pubkeyHash;
+    // 输出数字，查看原文方式: Buffer.alloc(8).writeBigInt64LE(BigInt("数字")).toString();
     signal output twitterUsername;
 
 
@@ -84,4 +85,4 @@ template TestZkEmail(maxHeadersLength, maxBodyLength, n, k, exposeFrom) {
 }
 
 
-component main { public [ address ] } = TestZkEmail(1024, 153600, 121, 17, 0);
+component main { public [ address ] } = TestZkEmail(1024, 1536, 121, 17, 0);

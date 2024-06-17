@@ -1,239 +1,90 @@
-X-Lms-Pvf: MnwyfDN8fIKt1qQVBiRAYsbg/8IulL/czaqzwxr6k7zCyD2WwV9LkspIW8ZGdXkKun6NBs/hZ9syDwqCkCIl1SStUvge9YPqPpKdJqQKfjazFMgrpZ48Fv6iJKUwW1PrIf9LH5vN6S+AByNWsOjK6vWn0ZiqLObvuYkggEy+/mFjMOtSar21IGIfVAhgUSNfQNl3s/gIoIN0FGfwiUzKtcsClH05wiLDAxJs3cOs6fCrc5XTDBSaojKX1BqQLYSXW70EOB4VwYmsOheKkuEOzaMKX35OlaIEv9L26JJZpyGbGiCvJL2fBehWkLEEEn8NlfMJ2ysyb+9bjd08I6ijbAyMa7y+RfUkM467EPRBq+oNj2X8jaAMBZxaKRlyVw7lKgB7rj4keefMJxqHuceX0/ldybOGRarG0XNtzZLIsgXZPmjlIDgpWJq6TmV2hm5sJZM4Yr8ztGYbZDuyBZiPSi/vzmxcKN2sq0ttXFXvHt6vCeZx5mo5HfRjWzHv9m0EmK2BCY2bQiK+ULZoixF+WviK2j6RNBjoja4et8sx5yPTEk50PghWnGF0nYN+neA+sLDXZbICuQ==
-ARC-Seal: i=2; a=rsa-sha256; t=1717124415; d=larksuite.com; s=arc230412; cv=pass;
-    b=H+aQCXr8Mj6cWmOnZnFUwnEhVYFCcuVNEgI6e6DFo/dPjQlrAGiaOzGFYRa37HqZAxcSLwc
-     p8zTZwKIodvPWJwrDjtwb3N1+vyOVI62ryic28MFXQgJCOrCX6xQZyl6odlCPGWypBmvdm82K
-     9bjB8UlDs9Xpw390xHdi3O7mpr+EOMl1Ihql4rPJzaykGfgVHOxWtdiT7oZ3jK+1aNYKkIOjK
-     VLaknyvlumlRUph6l0J0nThRrgzb5lwouWgYSuuj7oCh431qfVgBrS3GfIS5pcanntCjTOELK
-     OUz5FVR5LYYdQwxENBG+GxahnhJsmakHEnty/aLpVQNy2xOqcW8g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=larksuite.com;
-     s=arc230412;
-    h=from:to:subject:date:content-type:mime-version:message-id
-     :dkim-signature;
-    bh=JQZ8y/TrFQdH8lvYz2O5fZ0O0zwBjQYD3F3Dj2anlV8=;
-    b=GoC2n4E08MtvVtLEoaVcIhKCWgTCcFvgCNfj77udJbGsbokUQX7cbbhp+6R8KWL8V76krMP
-     6cgBnMessW/S5l7ozJY4ZRzThySgrqT3nEXmpRDyHgHM0/Znb2j+JJbmmX/Dwp3Bdc8foG78x
-     iQqKpQTKFGD9h57WP5lQqll2qJfOAuLP7kVBG0YDnRW9Mb/50ufimVkUj4STSXiqVOMDrX0DL
-     sFzhitdk1Ng4JSnEDZGHuP2IA62LSd8UPAPCPgwM1pX4r2jxwXvaSrteInNvhMqewPbNrCcAW
-     fWffN2BiKPCjfi3MjoRlAE0TIj1p+WABotuqs2XSe7uDlxAlLZkQ==
-ARC-Authentication-Results: i=2; lms;
-    spf=pass (client-ip:209.127.231.59 group:true) smtp.mailfrom=list@okg.com;
-    dkim=pass header.b=UZmC1Ou/CF header.i=@okg.com header.s=lark2312150143;
-    dmarc=pass (p=quarantine sp=quarantine dis=none) header.from=okg.com;
-    arc=pass header.oldest-pass=0
-Authentication-Results: lms;
-    spf=pass (client-ip:209.127.231.59 group:true) smtp.mailfrom=list@okg.com;
-    dkim=pass header.b=UZmC1Ou/CF header.i=@okg.com header.s=lark2312150143;
-    dmarc=pass (p=quarantine sp=quarantine dis=none) header.from=okg.com;
-    arc=pass header.oldest-pass=0
-X-Lms-Client-Ip: 209.127.231.59
-X-Lms-Mail-From: list@okg.com
-Received-SPF: pass (lms verify) identity=mailfrom; client-ip=209.127.231.59; helo=va-2-59.ptr.blmpb.com; envelope-from=list@okg.com; receiver=<UNKNOWN>;
-X-Lms-Group-Spf: pass (lms verify) identity=mailfrom; client-ip=209.127.231.53; helo=va-2-53.ptr.blmpb.com; envelope-from=list@okg.com; receiver=<UNKNOWN>;
-X-Lms-Group-Tag: t=1717124402; b=WghOGZ4F+sglieZDcRdn9yOs7aK2cd6rK07XJudTQd0
-X-Lms-Group-To: ok.all@okg.com
-ARC-Seal: i=1; a=rsa-sha256; t=1717124402; d=larksuite.com; s=arc230412; cv=none;
-    b=0uxAD4yByyF7d4kQZ46hksZ5F1q2ReOS7LJhimHhAGkssprrFMxQnDf36YteyiWUwxDtVtG
-     wu9qer8ASUpB36XVgRf5EXBuIhyfLc0AKQ4Sc2Uw3NWcnROD7p9ntUYtaI2kWaJl7fl+LlIKG
-     gPv3uJ2qNrYjgqQXgSNn+voX8FPTbXuKZVXAqnv8w/MaPFBuYfgzqPz3KYo5vtOYNAXs6iUzM
-     zlXN0L72Nq/ScN3CxSUAuS7XoNAIRrM06Y+1Moss+ly0igTiwfKXMaVezCHX7k+Tb/5tXhJFn
-     ogYWZF3FZl7AVqgBBVo2lDpFD0CAH3/KdNtkfirrKnS9yKqLe8KA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=larksuite.com;
-     s=arc230412;
-    h=from:to:subject:date:content-type:mime-version:message-id
-     :dkim-signature;
-    bh=JQZ8y/TrFQdH8lvYz2O5fZ0O0zwBjQYD3F3Dj2anlV8=;
-    b=Eb7cy0w7J/NDl+CtCBiVBWpFiyurZGyRUwaE0+1wugMfNw8b1lZ45mrfEJ8nqpHV87UzpzA
-     GUd0q2HQ2iwsANxh499gOBUHvyGo5UMrh8j6umKvmT6GjxonGzro4S56VJNLOHmzqFzPqsaKg
-     gpruWslwLVmcvalPBlGqToKdlG8CyhxGmFfT8mSC07dlTj63DzdxcYs3DSLxi9ngqaOxKwymd
-     avoSwvJFss8g1ZjswZanwXguwWHskN++2eW4KBHhsciLBVo0pL88/IjQCh4JqvXhlnn9bKDdN
-     zxPv0xBnatyVQPLvQM0+VPK2UYY91nMIFLjKPmyFb0VilDCgsKQg==
-ARC-Authentication-Results: i=1; lms;
-    spf=pass (client-ip:209.127.231.53) smtp.mailfrom=list@okg.com;
-    dkim=pass header.b=UZmC1Ou/CF header.i=@okg.com header.s=lark2312150143;
-    dmarc=pass (p=quarantine sp=quarantine dis=none) header.from=okg.com;
-    arc=none
-Authentication-Results: lms;
-    spf=pass (client-ip:209.127.231.53) smtp.mailfrom=list@okg.com;
-    dkim=pass header.b=UZmC1Ou/CF header.i=@okg.com header.s=lark2312150143;
-    dmarc=pass (p=quarantine sp=quarantine dis=none) header.from=okg.com;
-    arc=none
-X-Lms-Client-Ip: 209.127.231.53
-X-Lms-Mail-From: list@okg.com
-Received-SPF: pass (lms verify) identity=mailfrom; client-ip=209.127.231.53; helo=va-2-53.ptr.blmpb.com; envelope-from=list@okg.com; receiver=<UNKNOWN>;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=lark2312150143; d=okg.com; t=1717124401; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=JQZ8y/TrFQdH8lvYz2O5fZ0O0zwBjQYD3F3Dj2anlV8=;
- b=UZmC1Ou/CFCPEWxf4ERno+rFyNo4D2+Mp6rBNElAHPEfIlyAtgRP9GIgm9rimOFjoKepIR
- HTvLsF52MPeM52Vh1yhwsPWWyevhhFje1JVMJtEMLD1csmReBkPCZIW9kyXelo+C4Fzwab
- u6bW3XxOTldMdfE2L/x0NlHhX8wX0WzEwro5SqQLb8Ra3uuVtV6TPOo0wi7SyICdIdVfdg
- guhGxg60JhgafNgtxsXtD5yuP3BPM6b/Yf1QRC3lF6wJqlkOJKcYqztDaaUiPSw+5hHRZb
- TN/3Rvl265IVN0J724od5fc3GF1/0zjPbhpbqp62g8RPM+K1bRPtLIpla7qfBQ==
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+166593d30+e1d1a5+okg.com+list@okg.com>
-Message-Id: <3e69f2de726197a8357444d4f6bd9a3cc53bfcf4.e9be1cfc.6b08.4dbb.911d.e1ac61d81978@larksuite.com>
-Subject: Blackout Notice for ULTI
-From: "list@okg.com" <list@okg.com>
-To: "ok.all" <ok.all@okg.com>
-Content-Type: multipart/alternative;
- boundary=5e96d94f50752725059c08df3691f7579bde42da98c6b1f9c4519c267913
-Date: Fri, 31 May 2024 03:00:00 +0000
+Delivered-To: jzteam5103@gmail.com
+Received: by 2002:a05:7412:dc81:b0:115:7bb3:2404 with SMTP id jo1csp221452rdb;
+        Fri, 7 Jun 2024 04:10:03 -0700 (PDT)
+X-Received: by 2002:a05:6512:210c:b0:52b:86cf:91a2 with SMTP id 2adb3069b0e04-52bb9ff891fmr1225793e87.69.1717758603539;
+        Fri, 07 Jun 2024 04:10:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1717758603; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Sc7sIEBgi+sHIE6gHivJSe84bgSk1INkFN7EET5fwk/H2K99Oy/58/hTWJYiZxbVic
+         yOIud0KFfzS3P0vApjKF6ZHo8yxS8Lpg7G0rk0JYtNgLkO4DVxO/o2L2+Y/NPxwX3kwi
+         PzddH2fTiwFlTI2WW8i/whfAVciPKxD57SUS9uv7neYqod+fX8QCaY/8tZ2Iz7qAGCLm
+         SAOcO18jewm9IgexdlMi+dLzk/XN9icmkldl8Rit+w7X7h9GXCJD698OyTIUvrZ39oab
+         7Rd0wD1G968QV9Y5/SSbDP0EIN2sDyPtowDw6450+h1ggS133XUPLBuMYXvIJtG61wXI
+         8eBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=N28oaGoRQ3t3wrIRaqLfF0tr5jTyoBzXJRy6/PIiZpg=;
+        fh=RHH6w89R3typmRM9SCOY2eUJbMeUB+PoNk7vHyTkXM8=;
+        b=lTIGQQeA7opgH4GB2Qc+br2A3Jm1iWYvOGXpJ7MI997YGpNxjTz3Lx/EWqEG9jkn55
+         ahFGef3zTOzY1QgSYneXmdzd9SVhDZlO7sXnkTjVPczTEe4nIyDH41xhzA39st1Miz6E
+         5tyTNFjphqKLl4Jk79SSourr/9WmKtaNa9xc+gaGHcg3xA9Zw+YRjdD7gH8FOPXLuxbV
+         8Cj8sLnw33i/Nv32yOAhm1v4zgEfdV3DT1ArEl5baIKBMMCWE0yp+UrJWi0wW3aFp0ga
+         mjpHRfZszVUQ2k5F2kx0goNin7zpTCGmM5wI+uIPPJ7kKcs+rGrTCPtVjN55W+1/FkyN
+         DKGg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="DcYMH/yi";
+       spf=pass (google.com: domain of zhujizhi1012@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=zhujizhi1012@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <zhujizhi1012@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 2adb3069b0e04-52bb41edb73sor1251594e87.24.2024.06.07.04.10.03
+        for <jzteam5103@gmail.com>
+        (Google Transport Security);
+        Fri, 07 Jun 2024 04:10:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of zhujizhi1012@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="DcYMH/yi";
+       spf=pass (google.com: domain of zhujizhi1012@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=zhujizhi1012@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1717758603; x=1718363403; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=N28oaGoRQ3t3wrIRaqLfF0tr5jTyoBzXJRy6/PIiZpg=;
+        b=DcYMH/yi/hrFw5/iLaVDNoWs6NFo6CIOnF+aIg2vAs9aQRhwIdhYZ//1zXhzzVs/wI
+         I8tJJCz17B3MOuo4O2G231ud/y3b3WzABf/zCgEWSdpDV6qYRxYd/19ueazKbrjH1i2U
+         Oi3XYTrNY8oJuSNvwNiWSFB9Rjcgk7gBg/3ow2eOkZfyN2WIvgSDr6VKdH2lE5Ydsv3A
+         1rGJb2AV3SbJLXwlSptfpTS/43eF0wagAyUNJvP5ZUPjH8a/2hXk7BJVbMFRH8HL9g14
+         mcJR1O+hBQzWP1uhNBSGXbp1bAfNhN7aiZVSkRFhfvIBTg3vu7FatPee1cBh134kw+G0
+         G48A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1717758603; x=1718363403;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=N28oaGoRQ3t3wrIRaqLfF0tr5jTyoBzXJRy6/PIiZpg=;
+        b=NfJpkaK2rS7eX8gnJM4y1nR2teh+elfAmetIA4fsLJ1/13jVA+ThFtDjQDwK/hxcoH
+         sHe5meJZ7siFSCIUkt2o4iQk0qgPKeMvWBP0r+mzMFI7h0AVvicT3s2tptj9mHbCrZ2E
+         Z2BBG1mYs5a+EAgA/Lcoggw8uMhVfopmQG8sjPmlLUCS9Fjd8hiB6atCechdS02KA+PF
+         0if7ESIMfS3YSVMwp7lNo9ZY+dpp7P3ASaWXavI/cWy8GsKKINufDVqtpfvntdmCChKN
+         OKoSQ2iYfvsTqBIIqNTCyQgCJfwlm+h0JF0SQXhBR1HrJPDTg5RIJLiF/S5geSMoQXHi
+         7Q/Q==
+X-Gm-Message-State: AOJu0YxnsR2h/Q2vvLAxRQOmdJD1S41lQcXs5Y0Ysmtv9Xh3ClSi+wYA qWRAX7+jhio2asQFu11t7FKCONYPsuEaevid1Ez8fxqteYKoOMGGqpiggiWGWfa5zSs9Qe86Ede yc1Qa62LF719aKSFpFyphXOINJJYidgnRsWUuizHb
+X-Google-Smtp-Source: AGHT+IF4VQZNUCIIeeLkb4cjLSMhNi2504yshCmIengoYdO84vhIB9ygFnY0xJwZxh0l5vcFBOBzLr/QWu7xUY1OY28=
+X-Received: by 2002:a05:6512:2812:b0:529:b6e9:7978 with SMTP id 2adb3069b0e04-52bb9f8ef6fmr1854162e87.37.1717758602608; Fri, 07 Jun 2024 04:10:02 -0700 (PDT)
+MIME-Version: 1.0
+From: Jzteam <zhujizhi1012@gmail.com>
+Date: Fri, 7 Jun 2024 19:09:51 +0800
+Message-ID: <CANasdFMArEcd1=3dbFyEAgSLDTKBvV96koBfGXCnmpnym3pdaA@mail.gmail.com>
+Subject: testsetse
+To: jzteam5103@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000518d8b061a4ad7f3"
 
---5e96d94f50752725059c08df3691f7579bde42da98c6b1f9c4519c267913
+--000000000000518d8b061a4ad7f3
+Content-Type: text/plain; charset="UTF-8"
+
+If you requested a password reset for @Jzteam_X, use the confirmation code
+below to complete the process. If you didn't make this request, ignore this
+email.
+
+--000000000000518d8b061a4ad7f3
+Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-Dear Colleagues,
+<div dir=3D"ltr"><span style=3D"color:rgb(41,47,51);font-family:HelveticaNe=
+ue,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;font-size:16px">If=
+ you requested a password reset for @Jzteam_X, use the confirmation code be=
+low to complete the process. If you didn&#39;t make this request, ignore th=
+is email.</span><br></div>
 
-In accordance with OK Holdings Corporation Limited=E2=80=99s Insider Tradin=
-g Policy<https://okg-block.larksuite.com/file/YUZibDsdDoIYsBxrzS5u40Aksfc>=
-=C2=A0(the =E2=80=9CPolicy=E2=80=9D), OK Holdings Corporation Limited and i=
-ts subsidiaries (the =E2=80=9COK Group=E2=80=9D or =E2=80=9COKG=E2=80=9D) h=
-ereby provides the following =E2=80=9CBlackout Notice=E2=80=9D to all full-=
-time or part-time employees, advisors, directors, officers, managers, contr=
-actors, consultants, interns, and sub-contractors of OK Group and its affil=
-iates and subsidiaries who receive this announcement (=E2=80=9COKG Staff Me=
-mbers=E2=80=9D), in connection with the following digital assets (=E2=80=9C=
-Affected Digital Assets=E2=80=9D) for the reasons set out below:
-=E2=80=A2 [ULTI] - [under review to be listed on an OK Group trading platfo=
-rm]
-Blackout Period:=C2=A0
-2024/05/31 to 00:00 (GMT + 8) on=C2=A0third day after Affected Digital Asse=
-t is listed.
-
-Restrictions:=C2=A0
-
-During the Blackout Period noted above, all OKG Staff Members are prohibite=
-d from trading (buying or selling or transacting derivatives over) Affected=
- Digital Assets on any exchanges/platforms, no matter through their own acc=
-ounts or blockchain addresses or accounts or blockchain addresses over whic=
-h they have influence or control (including those of immediate family membe=
-rs).=C2=A0
-
-All OKG Staff Members who receive a Blackout Notice shall treat such notice=
- and its contents as confidential and shall not disclose its existence to a=
-ny third party until expiration of the Blackout Period or other notificatio=
-n. It remains the personal responsibility of each individual covered by thi=
-s Policy to abide by its terms and not trade while in possession of MNPI re=
-gardless of the existence of any Blackout Period.=C2=A0
-
-All OKG Staff Members are also reminded to follow all other requirements in=
- the Policy, which are applicable during and after the Blackout Period incl=
-uding the prohibition on trading (buying or selling) digital assets while i=
-n the possession of any material information on such digital assets obtaine=
-d in the course of work with the OK Group.
-
-Exceptions to the Policy will require exceptional approval in accordance wi=
-th the Policy from the Responsible Compliance Officer, and a formal written=
- request should be sent to insider@okg.com. Such applications will be consi=
-dered on a case-by-case basis.
---5e96d94f50752725059c08df3691f7579bde42da98c6b1f9c4519c267913
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/html; charset=UTF-8
-
-<div id=3D"editor_version_7.15.0_QmM90vIV" style=3D"word-break:break-word;"=
-><div data-zone-id=3D"0" data-line-index=3D"0" data-line=3D"true" style=3D"=
-margin-top: 4px; margin-bottom: 4px; line-height: 1.6;"><div dir=3D"auto" s=
-tyle=3D"font-size: 14px;"><span style=3D"font-size: 14px;"><span style=3D"f=
-ont-family: LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-sys=
-tem, BlinkMacSystemFont, Tahoma, &quot;PingFang SC&quot;, Arial, sans-serif=
-;"><span style=3D"color: rgb(31, 35, 41);"><span style=3D"background-color:=
- rgb(255, 255, 255);">Dear Colleagues,</span></span></span></span></div></d=
-iv><div data-zone-id=3D"0" data-line-index=3D"1" data-line=3D"true" style=
-=3D"margin-top: 4px; margin-bottom: 4px; line-height: 1.6;"><div dir=3D"aut=
-o" style=3D"font-size: 14px;"><br></div></div><div data-zone-id=3D"0" data-=
-line-index=3D"2" data-line=3D"true" style=3D"margin-top: 4px; margin-bottom=
-: 4px; line-height: 1.6;"><div dir=3D"auto" style=3D"font-size: 14px;"><spa=
-n style=3D"font-size: 14px;">In accordance with </span><u><span style=3D"fo=
-nt-size: 14px;"><a class=3D"not-doclink" href=3D"https://okg-block.larksuit=
-e.com/file/YUZibDsdDoIYsBxrzS5u40Aksfc" linkid=3D"NfLz0W4KMp" target=3D"_bl=
-ank" rel=3D"noopener noreferrer" style=3D"transition: color 0.3s ease 0s; c=
-ursor: pointer; color: rgb(20, 86, 240);">OK Holdings Corporation Limited=
-=E2=80=99s Insider Trading Policy</a></span></u><span style=3D"font-size: 1=
-4px;">&nbsp;(the =E2=80=9C</span><b><span style=3D"font-size: 14px;">Policy=
-</span></b><span style=3D"font-size: 14px;">=E2=80=9D), OK Holdings Corpora=
-tion Limited and its subsidiaries (the =E2=80=9C</span><b><span style=3D"fo=
-nt-size: 14px;">OK Group</span></b><span style=3D"font-size: 14px;">=E2=80=
-=9D or =E2=80=9C</span><b><span style=3D"font-size: 14px;">OKG</span></b><s=
-pan style=3D"font-size: 14px;">=E2=80=9D) hereby provides the following =E2=
-=80=9CBlackout Notice=E2=80=9D to all full-time or part-time employees, adv=
-isors, directors, officers, managers, contractors, consultants, interns, an=
-d sub-contractors of OK Group and its affiliates and subsidiaries who recei=
-ve this announcement (=E2=80=9C</span><b><span style=3D"font-size: 14px;">O=
-KG Staff Members</span></b><span style=3D"font-size: 14px;">=E2=80=9D), in =
-connection with the following digital assets (=E2=80=9C</span><b><span styl=
-e=3D"font-size: 14px;">Affected Digital Assets</span></b><span style=3D"fon=
-t-size: 14px;">=E2=80=9D) for the reasons set out below:</span></div></div>=
-<ul start=3D"1" style=3D"margin-top: 0px; margin-bottom: 0px; margin-left: =
-0px; padding-left: 0px; list-style-position: inside;" data-list-bullet=3D"t=
-rue"><li class=3D"temp-li bullet1" data-li-line=3D"true" data-list=3D"bulle=
-t1" style=3D"line-height: 1.6; margin-top: 4px; margin-bottom: 4px; padding=
--left: 0px; display: list-item; list-style-type: disc; text-align: left; fo=
-nt-size: 14px; margin-left: 0px; list-style-position: inside;" dir=3D"auto"=
-><b><span style=3D"font-size: 14px;">[</span></b><b>ULTI</b><b><span style=
-=3D"font-size: 14px;">] - [under review to be listed on an OK Group trading=
- platform]</span></b></li></ul><div data-zone-id=3D"0" data-line-index=3D"4=
-" data-line=3D"true" style=3D"margin-top: 4px; margin-bottom: 4px; line-hei=
-ght: 1.6;"><div dir=3D"auto" style=3D"font-size: 14px;"><u><span style=3D"f=
-ont-size: 14px;">Blackout Period</span></u><span style=3D"font-size: 14px;"=
->:&nbsp;</span></div></div><div data-zone-id=3D"0" data-line-index=3D"5" da=
-ta-line=3D"true" style=3D"margin-top: 4px; margin-bottom: 4px; line-height:=
- 1.6;"><div dir=3D"auto" style=3D"font-size: 14px;"><b><span style=3D"font-=
-size: 14px;">2024/05/31 to 00:00 (GMT + 8) </span></b><b><span style=3D"fon=
-t-size: 14px;">on</span></b><b><span style=3D"font-size: 14px;">&nbsp;third=
- day after Affected Digital Asset is listed.</span></b></div></div><div dat=
-a-zone-id=3D"0" data-line-index=3D"6" data-line=3D"true" style=3D"margin-to=
-p: 4px; margin-bottom: 4px; line-height: 1.6;"><div dir=3D"auto" style=3D"f=
-ont-size: 14px;"><br></div></div><div data-zone-id=3D"0" data-line-index=3D=
-"7" data-line=3D"true" style=3D"margin-top: 4px; margin-bottom: 4px; line-h=
-eight: 1.6;"><div dir=3D"auto" style=3D"font-size: 14px;"><u><span style=3D=
-"font-size: 14px;">Restrictions</span></u><span style=3D"font-size: 14px;">=
-:&nbsp;</span></div></div><div data-zone-id=3D"0" data-line-index=3D"8" dat=
-a-line=3D"true" style=3D"margin-top: 4px; margin-bottom: 4px; line-height: =
-1.6;"><div dir=3D"auto" style=3D"font-size: 14px;"><br></div></div><div dat=
-a-zone-id=3D"0" data-line-index=3D"9" data-line=3D"true" style=3D"margin-to=
-p: 4px; margin-bottom: 4px; line-height: 1.6;"><div dir=3D"auto" style=3D"f=
-ont-size: 14px;"><b><span style=3D"font-size: 14px;">During the Blackout Pe=
-riod noted above, all OKG Staff Members are prohibited from trading (buying=
- or selling or transacting derivatives over) Affected Digital Assets on any=
- exchanges/platforms, no matter through their own accounts or blockchain ad=
-dresses or accounts or blockchain addresses over which they have influence =
-or control (including those of immediate family members)</span></b><span st=
-yle=3D"font-size: 14px;">.&nbsp;</span></div></div><div data-zone-id=3D"0" =
-data-line-index=3D"10" data-line=3D"true" style=3D"margin-top: 4px; margin-=
-bottom: 4px; line-height: 1.6;"><div dir=3D"auto" style=3D"font-size: 14px;=
-"><br></div></div><div data-zone-id=3D"0" data-line-index=3D"11" data-line=
-=3D"true" style=3D"margin-top: 4px; margin-bottom: 4px; line-height: 1.6;">=
-<div dir=3D"auto" style=3D"font-size: 14px;"><span style=3D"font-size: 14px=
-;">All OKG Staff Members who receive a Blackout Notice shall treat such not=
-ice and its contents as confidential and shall not disclose its existence t=
-o any third party until expiration of the Blackout Period or other notifica=
-tion. It remains the personal responsibility of each individual covered by =
-this Policy to abide by its terms and not trade while in possession of MNPI=
- regardless of the existence of any Blackout Period.&nbsp;</span></div></di=
-v><div data-zone-id=3D"0" data-line-index=3D"12" data-line=3D"true" style=
-=3D"margin-top: 4px; margin-bottom: 4px; line-height: 1.6;"><div dir=3D"aut=
-o" style=3D"font-size: 14px;"><br></div></div><div data-zone-id=3D"0" data-=
-line-index=3D"13" data-line=3D"true" style=3D"margin-top: 4px; margin-botto=
-m: 4px; line-height: 1.6;"><div dir=3D"auto" style=3D"font-size: 14px;"><sp=
-an style=3D"font-size: 14px;">All OKG Staff Members are also reminded to fo=
-llow all other requirements in the Policy, which are applicable during and =
-after the Blackout Period including the prohibition on trading (buying or s=
-elling) digital assets while in the possession of any material information =
-on such digital assets obtained in the course of work with the OK Group.</s=
-pan></div></div><div data-zone-id=3D"0" data-line-index=3D"14" data-line=3D=
-"true" style=3D"margin-top: 4px; margin-bottom: 4px; line-height: 1.6;"><di=
-v dir=3D"auto" style=3D"font-size: 14px;"><br></div></div><div data-zone-id=
-=3D"0" data-line-index=3D"15" data-line=3D"true" style=3D"margin-top: 4px; =
-margin-bottom: 4px; line-height: 1.6;"><div dir=3D"auto" style=3D"font-size=
-: 14px;"><span style=3D"font-size: 14px;">Exceptions to the Policy will req=
-uire exceptional approval in accordance with the Policy from the Responsibl=
-e Compliance Officer, and a formal written request should be sent to </span=
-><span style=3D"font-size: 14px;"><a class=3D"not-doclink" href=3D"mailto:i=
-nsider@okg.com" linkid=3D"T3iPKVtUTZ" target=3D"_blank" rel=3D"noopener nor=
-eferrer" style=3D"transition: color 0.3s ease 0s; cursor: pointer; text-dec=
-oration: none; color: rgb(20, 86, 240);">insider@okg.com</a></span><span st=
-yle=3D"font-size: 14px;">. Such applications will be considered on a case-b=
-y-case basis.</span></div></div></div>
---5e96d94f50752725059c08df3691f7579bde42da98c6b1f9c4519c267913--
+--000000000000518d8b061a4ad7f3--

@@ -78,5 +78,5 @@ npx ts-node inputs.ts
 # --O1 部分简化
 # --O2 全部简化
 # --verbose 输出编译日志
-circom -l node_modules circuits/TestZkEmail.circom -o --r1cs --wasm --sym --c --O2 --verbose
+circom -l node_modules circuits/TestZkEmail.circom -o target --r1cs --wasm --sym --c --O2 --verbose
 

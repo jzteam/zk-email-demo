@@ -3,7 +3,7 @@ pragma circom 2.1.5;
 
 include "@zk-email/zk-regex-circom/circuits/regex_helpers.circom";
 
-// regex: @([a-zA-Z0-9_]+)\.
+// regex: @([a-zA-Z0-9_]+)
 template RegexEmail(msg_bytes) {
 	signal input msg[msg_bytes];
 	signal output out;
@@ -15,20 +15,20 @@ template RegexEmail(msg_bytes) {
 		in[i+1] <== msg[i];
 	}
 
-	component eq[13][num_bytes];
+	component eq[12][num_bytes];
 	component lt[4][num_bytes];
-	component and[6][num_bytes];
+	component and[5][num_bytes];
 	component multi_or[2][num_bytes];
-	signal states[num_bytes+1][4];
+	signal states[num_bytes+1][3];
 	component state_changed[num_bytes];
 
 	states[0][0] <== 1;
-	for (var i = 1; i < 4; i++) {
+	for (var i = 1; i < 3; i++) {
 		states[0][i] <== 0;
 	}
 
 	for (var i = 0; i < num_bytes; i++) {
-		state_changed[i] = MultiOR(3);
+		state_changed[i] = MultiOR(2);
 		lt[0][i] = LessEqThan(8);
 		lt[0][i].in[0] <== 65;
 		lt[0][i].in[1] <== in[i];
@@ -113,40 +113,32 @@ template RegexEmail(msg_bytes) {
 		and[4][i].b <== eq[11][i].out;
 		states[i+1][2] <== and[4][i].out;
 		state_changed[i].in[1] <== states[i+1][2];
-		eq[12][i] = IsEqual();
-		eq[12][i].in[0] <== in[i];
-		eq[12][i].in[1] <== 46;
-		and[5][i] = AND();
-		and[5][i].a <== states[i][1];
-		and[5][i].b <== eq[12][i].out;
-		states[i+1][3] <== and[5][i].out;
-		state_changed[i].in[2] <== states[i+1][3];
 		states[i+1][0] <== 1 - state_changed[i].out;
 	}
 
 	component final_state_result = MultiOR(num_bytes+1);
 	for (var i = 0; i <= num_bytes; i++) {
-		final_state_result.in[i] <== states[i][3];
+		final_state_result.in[i] <== states[i][1];
 	}
 	out <== final_state_result.out;
 
 	signal is_consecutive[msg_bytes+1][2];
 	is_consecutive[msg_bytes][1] <== 1;
 	for (var i = 0; i < msg_bytes; i++) {
-		is_consecutive[msg_bytes-1-i][0] <== states[num_bytes-i][3] * (1 - is_consecutive[msg_bytes-i][1]) + is_consecutive[msg_bytes-i][1];
+		is_consecutive[msg_bytes-1-i][0] <== states[num_bytes-i][1] * (1 - is_consecutive[msg_bytes-i][1]) + is_consecutive[msg_bytes-i][1];
 		is_consecutive[msg_bytes-1-i][1] <== state_changed[msg_bytes-i].out * is_consecutive[msg_bytes-1-i][0];
 	}
 
-	signal is_substr0[msg_bytes][5];
+	signal is_substr0[msg_bytes][3];
 	signal is_reveal0[msg_bytes];
 	signal output reveal0[msg_bytes];
 	for (var i = 0; i < msg_bytes; i++) {
 		is_substr0[i][0] <== 0;
-		is_substr0[i][1] <== is_substr0[i][0] + states[i+1][0] * states[i+2][2];
-		is_substr0[i][2] <== is_substr0[i][1] + states[i+1][2] * states[i+2][1];
-		is_substr0[i][3] <== is_substr0[i][2] + states[i+1][1] * states[i+2][1];
-		is_substr0[i][4] <== is_substr0[i][3] + states[i+1][1] * states[i+2][3];
-		is_reveal0[i] <== is_substr0[i][4] * is_consecutive[i][1];
+		is_substr0[i][1] <== is_substr0[i][0] + states[i+1][2] * states[i+2][1];
+		is_substr0[i][2] <== is_substr0[i][1] + states[i+1][1] * states[i+2][1];
+		is_reveal0[i] <== is_substr0[i][2] * is_consecutive[i][1];
 		reveal0[i] <== in[i+1] * is_reveal0[i];
 	}
 }
+
+// component main = RegexEmail(1536);

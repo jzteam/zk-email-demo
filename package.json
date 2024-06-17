@@ -6,7 +6,8 @@
   "dependencies": {
     "@zk-email/circuits": "^6.1.1",
     "@zk-email/contracts": "^6.1.1",
-    "@zk-email/helpers": "^6.1.1"
+    "@zk-email/helpers": "^6.1.1",
+    "@zk-email/zk-regex-circom": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.1"

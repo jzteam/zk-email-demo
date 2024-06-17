@@ -1,3 +1,9 @@
 node_modules/
 .*
+target/
 !.gitignore
+yarn.lock
+package-lock.json
+## 该文件4.5G，可以通过网络下载(wget https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_22.ptau)，不必上传到 github
+powersOfTau28_hez_final_22.ptau
+powersOfTau19_final.ptau
