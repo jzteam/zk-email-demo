@@ -15,6 +15,9 @@ wait
 snarkjs zkey export verificationkey target/RegexEmail/RegexEmail_final.zkey target/RegexEmail/RegexEmail_vkey.json
 wait
 
+# 准备 input.json
+mv ./regex-email-input.json ./target/RegexEmail/input.json
+
 # 生成 wtns
 node target/RegexEmail/RegexEmail_js/generate_witness.js target/RegexEmail/RegexEmail_js/RegexEmail.wasm target/RegexEmail/input.json target/RegexEmail/witness.wtns
 wait

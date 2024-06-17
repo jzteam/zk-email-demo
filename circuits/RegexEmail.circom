@@ -1,4 +1,4 @@
-        
+
 pragma circom 2.1.5;
 
 include "@zk-email/zk-regex-circom/circuits/regex_helpers.circom";
@@ -141,4 +141,4 @@ template RegexEmail(msg_bytes) {
 	}
 }
 
-// component main = RegexEmail(1536);
+component main = RegexEmail(1536);

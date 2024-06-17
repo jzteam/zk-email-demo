@@ -17,7 +17,7 @@ wait
 
 # 生成 input.json
 npx ts-node test/inputs.ts
-mv ./target/input.json ./target/TestZkEmail/input.json
+cp ./target/input.json ./target/TestZkEmail/input.json
 
 # 生成 wtns
 node target/TestZkEmail/TestZkEmail_js/generate_witness.js target/TestZkEmail/TestZkEmail_js/TestZkEmail.wasm target/TestZkEmail/input.json target/TestZkEmail/witness.wtns
