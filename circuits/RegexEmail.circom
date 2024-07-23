@@ -140,5 +140,4 @@ template RegexEmail(msg_bytes) {
 		reveal0[i] <== in[i+1] * is_reveal0[i];
 	}
 }
-
-component main = RegexEmail(1536);
+// component main = RegexEmail(1536);
