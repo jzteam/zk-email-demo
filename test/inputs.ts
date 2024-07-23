@@ -27,7 +27,7 @@ export async function generateTwitterVerifierCircuitInputs(
   const dkimResult = await verifyDKIMSignature(Buffer.from(rawEmail));
 
   const emailVerifierInputs =
-    await generateEmailVerifierInputsFromDKIMResult(dkimResult);
+    await generateEmailVerifierInputsFromDKIMResult(dkimResult, {maxBodyLength: 768});
 
   console.log("pubkey=", emailVerifierInputs.pubkey.join(","));
 
